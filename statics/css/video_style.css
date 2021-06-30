@@ -1,0 +1,781 @@
+body {
+    /* background: #333; */
+    /* background:rgba(214,230,245); */
+    background-color: #2c3033;
+    background-image: url(../images/video_bg.jpg);
+    background-repeat: repeat;
+    background-size: 200%;
+}
+header.video {
+    position: fixed; /* 수정 0524 오후 (추가) */
+    width: 100%; /* 수정 0524 오후 (추가) */
+    height: 70px;
+    background: #090a0a;
+    border-bottom: 1px solid #2c3033;
+    box-shadow: 3px 3px 15px rgba(0,0,0,0.5);
+}
+.wrap2 {
+    width: 94vw; 
+    margin: 0 auto;
+    position: relative;
+}
+header.video h1 {
+    /* margin-left: 70px; */
+    height: 70px;
+    width: 150px;
+    box-sizing: border-box;
+    padding: 0;
+    display: flex;
+    align-items: center;
+}
+header.video h1 a {
+    width: auto;
+    height: auto;
+}
+header.video h1 a img {
+    width: 100%
+}
+
+.video_btn {
+    position: absolute;
+    right: 0; 
+    top: 50%;
+    transform: translate(0, -50%);
+    }
+    
+    .video_btn:after {
+        content: "";
+        clear: both;
+        display: block;
+    }
+    header.video .video_btn .video_set li {
+        float: left;
+        height: 50px;
+        margin-right: 10px;
+    }
+    header.video .video_btn a {
+        display: block;
+        width: 48px;    
+        height: 50px;
+        font-size: 12px;
+        text-align: center;
+        color: #fff;
+        box-sizing: border-box;
+        background-size: 24px;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+    header.video .video_btn .chat_leave {    
+        display: block;
+        width: 48px;    
+        height: 50px;
+        background-image: url(../images/video_icon_leave.svg);
+        background-size: 30px;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+    header.video .video_btn .chat_leave2 {    
+        display: block;
+        width: 100px;
+        height: 30px;
+        line-height: 30px;
+        background: #1254ff;
+        border-radius: 5px;
+        font-size: 14px;
+        font-weight: 400;
+        font-family: 'Noto Sans KR';
+        letter-spacing: 2px;
+        transition: .3s;
+    }
+
+
+
+
+
+
+
+
+
+
+header.video .video_btn .chat_leave {    
+    display: block;
+    width: 48px;    
+    height: 50px;
+    background-image: url(../images/video_icon_leave.svg);
+    background-size: 30px;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+header.video .video_btn .chat_leave2 {    
+    display: block;
+    width: 100px;
+    height: 30px;
+    line-height: 30px;
+    background: #1254ff;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: 400;
+    font-family: 'Noto Sans KR';
+    letter-spacing: 2px;
+    transition: .3s;
+}
+
+/* video_info */
+.video_info {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    width: 350px;
+    height: calc(100% - 70px);
+}
+.info_cont {
+    position: relative;
+    top: 0;
+    right: 0;
+    display: block;
+    transition: .5s;
+    height: calc(100% - 56px);
+}
+.info_cont.off {
+    right: -350px;
+}
+.info_cont > h3 { 
+    width: 100%;
+    text-align: center;
+    height: 56px;
+    line-height: 56px;
+    font-size: 16px;
+    text-transform: uppercase;
+    transform: skew(-0.03deg);
+    color: #eee;
+    /* 수정 0521 (삭제)      
+    padding-left: 10px;  */
+    box-sizing: border-box;        
+}
+/* 스크롤바 */
+.info_listcont::-webkit-scrollbar { width: 5px; background-color: #eee; }
+.info_listcont::-webkit-scrollbar-thumb { background-color: #ff0000; border-radius: 10px; background-clip: padding-box; border: 0px solid transparent; }
+.info_listcont::-webkit-scrollbar-track  { background-color: #000; }
+.info_cont.chat_cont {
+    height: calc(100vh - 70px);
+    background: #141617;
+}
+.info_btn {
+    width: 46px;
+    height: 46px;
+    background-image: url(../images/close_btn_mob.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 50%;
+    top: 5px;
+    right: 10px; 
+    position: absolute;
+    border-radius: 100%;
+    display: block;
+    z-index: 999;
+    transition: .5s;
+}
+.info_btn.off {
+    left: -53px;
+    background-color: rgba(20, 22, 23,1);
+    border: 1px solid rgba(128, 128, 128, 0.2);
+    box-sizing: border-box;
+    transition: .3s;
+}
+.info_btn.chat_btn.off {
+    background-image: url(../images/video_icon_send.svg);
+}
+
+
+/* 채팅창 영역 */
+.chat_screen {
+    height: calc(100% - 74px);
+    overflow: auto;
+    padding-bottom: 5px;
+    box-sizing: border-box;
+}
+.chat_screen::-webkit-scrollbar {
+    display: none;
+}
+.chat_cont {
+    position: relative;
+}
+.chat_window {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background: #fff;
+    height: auto;
+    padding: 10px 0;
+    box-sizing: border-box;
+}
+.chat_input {
+    width: 300px;
+    height: 50px;
+    resize: none;
+    background: #fff;
+    padding: 0 10px;
+    line-height: 1.6;
+    border: none;
+    box-sizing: border-box;
+}
+.chat_input::-webkit-scrollbar {
+    display: none;
+} 
+.chat_input:focus {
+    outline: none;
+}
+.chat_window > a {
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
+    z-index: 10;
+    display: block;
+    width: 36px;
+    height: 36px;
+    background-color: #1254ff;
+    background-size: 60%;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 20px;
+    transition: .3s;
+}
+
+.chat_send {
+    right: 10px;
+    background-image: url(../images/video_icon_chat_send.svg);
+    cursor: pointer; 
+}
+
+/* 채팅화면 */
+.chat_other:after,
+.chat_me:after {
+    content: "";
+    clear: both;
+    display: block;
+}
+.chat_other .chat_txt {
+    float: left;
+}
+.chat_me .chat_txt {
+    float: right;
+    background: #d6e6f5;
+}
+.chat_txt {
+    font-family: 'Noto Sans KR';
+    background: #eee;
+    width: 50%;
+    margin: 0 10px 10px;
+    border-radius: 10px;
+    padding: 8px;
+    position: relative;
+}
+.chat_txt:after {
+    content: "";
+    clear: both;
+    display: block;
+}
+.chat_txt .chat_face {
+    display: block;
+    width: 30px;
+    height: 30px;
+    background: url(../images/video_icon_infoface.svg);
+    float: left;
+    cursor: default;
+}
+.chat_txt > p {
+    font-size: 15px;
+    line-height: 1.6;
+    font-family: 'Noto Sans KR';
+    color: #111;
+}
+.chat_txt > span { 
+    display: inline-block;
+    line-height: 30px;
+    height: 30px;
+}
+.chat_txt span.chat_name {
+    padding-left: 8px;
+    font-size: 14px;
+    color: #111;
+}
+.chat_txt span.chat_id {
+    color: #333;
+    font-size: 12px;
+}
+.chat_txt span.chat_id:before {
+    content: "(";
+}
+.chat_txt span.chat_id:after {
+    content: ")";
+}
+.chat_txt span.chat_time {
+    font-size: 12px;
+    position: absolute;
+    bottom: 0;
+    color: #999;
+    padding: 0 6px;
+    transform: translate(100%, 0%);
+    right: 0;
+    width: 100px;
+}
+.chat_me .chat_txt a,
+.chat_me .chat_txt .chat_name,
+.chat_me .chat_txt .chat_id {
+    display: none;
+}
+.chat_me .chat_txt .chat_time {
+    transform: translate(-100%, 0%);
+    left: 0;
+    bottom: 0;
+    text-align: right;
+}
+
+
+/* 라이브 화면 */
+.main_video_area {
+    width: calc(100% - 350px);
+    position: absolute;
+    top: 70px;
+    left: 0;
+    box-sizing: border-box;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    flex-direction: row;
+    z-index: 99;
+    transition: 0.4s;
+    height: calc(100vh - 70px);
+    overflow: hidden;
+}
+.main_video_area.re {
+    width: calc(100% - 60px);
+    padding: 50px 35px;
+}
+.live_screen {
+    width: 66.6vw;
+    height: 37.5vw;
+    background: #eee;
+    position: relative;
+}
+.live_intro {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+}
+.live_intro.play {
+    display: none;
+}
+.introbox {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: .3s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.live_play {
+    display: block;
+    width: 7.9vw;
+    height: 8.8vw;
+    background: url(../images/live_play.svg) no-repeat center/cover;
+    transition: .3s;
+}
+@media (hover: hover) {
+.live_play:hover {
+    background: url(../images/live_play2.svg) no-repeat center/cover;
+}
+}    
+.clock {
+    font-size: 24px;
+    text-align: center;
+    margin-top: 20px;
+    font-weight: bold;
+}
+/* 라이브비디오화면 */
+.live_video {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: none;
+}
+.live_video.play {
+    display: block;
+}
+.video_box {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    /* background: url('http://placehold.it/1280x720') no-repeat center/cover; 동영상 들어가는 영역으로 임시배경임! 삭제해야함! */
+    background: #000;
+}
+.video_box img {
+    width: 100%;
+    height: 100%;
+}
+.live_set {
+    background: rgba(255, 255, 255, 0.8);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 40px;
+    z-index: 10;
+    display: none;
+}
+.live_set.on {
+    display: flex;
+
+}
+.live_set > ul {
+    width: 50%;
+    padding: 0 20px;
+    box-sizing: border-box;
+    height: 40px;
+}
+
+.play_set li {
+    float: left;
+}
+.play_set2 li {
+    float: right;
+}
+.live_set a {
+    width: 40px;
+    height: 40px;
+    display: inline-block;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.set_cam {
+    background-image: url(../images/cam.svg);
+}
+.set_cam.off {
+    background-image: url(../images/camoff.svg);
+}
+.set_sound {
+    background-image: url(../images/sound.svg);
+}
+.set_sound.off {
+    background-image: url(../images/sound2.svg);
+}
+.newscreen {
+    background-image: url(../images/newscreen.svg);
+    background-size: 90%;
+}
+.fullscreen {
+    background-image: url(../images/fullscreen.svg);
+    background-size: 90%;
+}
+
+@media (hover: hover) {
+    .set_cam:hover {
+        background-image: url(../images/camoff.svg);
+    }
+    .set_cam.set_play:hover {
+        background-image: url(../images/cam.svg);
+    }
+    .set_sound:hover {
+        background-image: url(../images/sound2.svg);
+    }
+    .newscreen:hover {
+        background-image: url(../images/newscreen2.svg);
+    }
+    .fullscreen:hover {
+        background-image: url(../images/fullscreen2.svg);
+    }
+}
+
+/* 비디오설정 아이콘 설명 */
+@media (hover: hover) {
+
+    .live_set a:hover:after {
+        content: "";
+        display: block;
+        background: rgba(18, 84, 255, 0.8);
+        color: #fff;
+        position: relative;
+        width: 65px;
+        line-height: 30px;
+        top: -35px;
+        left: -10px;
+        font-size: 13px;
+        text-align: center;
+        border-radius: 5px;
+    }
+    .live_set .set_stop:hover:after {
+        content: "화면끄기";
+    }
+    .live_set .set_stop.off:hover:after {
+        content: "화면켜기";
+    }
+    .live_set .set_sound:hover:after {
+        content: "음소거";
+    }
+    .live_set .set_sound.off:hover:after {
+        content: "소리켜기";
+    }
+    .live_set .fullscreen:hover:after {
+        content: "전체화면";
+    }
+    .live_set .newscreen:hover:after {
+        content: "새로운창";
+    }
+}
+
+/* 라이브화면정보 */
+.live_cont {
+    height: 90px;
+    background: #fff;
+    box-sizing: border-box;
+    border-top: 1px solid #999;
+    width: 66.6vw;
+    display: flex;
+    flex-direction: column;
+    padding: 3px 20px;
+    box-sizing: border-box;
+}
+.title_txt {
+    float: left;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 45px;
+    display: block;
+    width: calc(100% - 160px);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* 시청자 반응 */
+.live_react {
+    float: right;
+    display: flex;
+    width: 150px;
+    align-items: center;
+    justify-content: space-around;
+}
+.live_react > li > a {
+    width: 45px;
+    height: 45px;
+    display: block;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.gcoin {
+    background-image: url(../images/gcoin.svg);
+}
+
+.favorite {
+    background-image: url(../images/favorite.svg);
+}
+
+.favorite.act {
+    background-image: url(../images/favorite3.svg);
+}
+.like {
+    background-image: url(../images/like.svg);
+}
+.like.act {
+    background-image: url(../images/like2.svg);
+}
+
+@media (hover: hover) {
+    .gcoin:hover {
+        background-image: url(../images/gcoin2.svg);
+    }
+    .favorite:hover {
+        background-image: url(../images/favorite2.svg);
+    }
+    .like:hover {
+        background-image: url(../images/like2.svg);
+    }
+    .live_react a:hover:after {
+        content: "";
+        display: block;
+        background: #333;
+        color: #fff;
+        position: relative;
+        width: 65px;
+        line-height: 30px;
+        top: 45px;
+        left: -10px;
+        font-size: 12px;
+        text-align: center;
+        border-radius: 5px;
+    }
+    .live_react .fullscreen:hover:after {
+        content: "전체화면";
+    }
+    .live_react .newscreen:hover:after {
+        content: "새창";
+    }
+    .live_react .gcoin:hover:after {
+        content: "후원하기";
+    }
+    .live_react .favorite:hover:after {
+        content: "즐겨찾기";
+    }
+    .live_react .like:hover:after {
+        content: "추천하기";
+    }
+}
+
+.user_info {
+    float: left;
+    height: 30px;
+    display: block;
+    padding-left: 40px;
+    background: url(../images/video_icon_infoface.svg) no-repeat left center ;
+    margin-right: 20px;
+}
+.user_info > span {
+    display: inline-block;
+    line-height: 30px;
+    height: 30px;
+}
+
+.user_info2 span {
+    color: #666;
+    font-size: 14px;
+
+}
+.info_title {
+    height: 30px;
+    margin-right: 5px;
+    line-height: 30px;
+    background-repeat: no-repeat;
+    background-position: center;
+    color: #111;
+}
+.live_count {
+    padding-right: 15px;
+    margin-right: 10px;
+    line-height: 30px;
+    position: relative;
+}
+.live_count:after {
+    content: "˙";
+    position: absolute;
+    right: -1px;
+}
+.user_info2 span:last-child:after {
+    display: none;
+}
+/* .live_viewer {
+    background-image: url(../images/live_viewer.svg);
+    background-size: 90%;
+}
+.live_favo {
+    background-image: url(../images/favorite3.svg);
+    background-size: 90%;
+    background-position: center 1px;
+}
+.live_like {
+    background-image: url(../images/like2.svg);
+    background-size: 90%;
+} */
+
+/* .live_viewer {
+    content: "";
+    position: absolute;
+    left: -30px;
+    display: block;
+    width: 30px;
+    height: 30px;
+    background: #fcf;
+} */
+
+
+.live_date {
+    margin: 0 5px;
+    font-size: 14px;
+}
+
+
+
+
+/* 모바일 HOVER 방지용 */
+@media (hover: hover) {
+
+    .video_m_list li a.watch:hover {
+        background: #111;
+    }
+
+    .info_btn.off:hover {                   
+        transform: scale(1.2);
+        background-color: #090a0a;
+    }
+    .info_btn.off:hover:after {
+        display: none;
+        content: "participants";
+        position: absolute;
+        top: 30%;
+        left: -190%;
+        color: #eee;
+        font-size: 14px;
+        text-align: right;
+    }
+    .chat_btn.off:hover:after {
+        display: none;
+        content: "chatting";
+        left: -140%;
+    }
+    .video_info .chat_cont .chat_window > a:hover {
+        background-color: #1254ff;
+    }
+    .file_btn:hover {
+        opacity: 1;
+    }
+
+}
+
+
+/* 라이브방송자 */
+.start_box {
+    float: right;
+}
+.start {
+    display: block;
+    width: 140px;
+    height: 40px;
+    background: #1254ff;
+    color: #fff;
+    font-size: 14px;
+    border-radius: 5px;
+    text-align: center;
+    line-height: 40px;
+    transition: .3s;
+    position: relative;
+    top: -25px;
+}
+@media (hover: hover) {
+    .start:hover {
+        background: #090a0a;
+    }
+}
+
+.liveing {
+    width: 60px;
+    height: 60px;
+    display: block;
+    position: absolute;
+    top: 5px;
+    right: 50%;
+    background-image: url(../images/liveing2.svg);
+    background-size: 80%;
+    background-repeat: no-repeat;
+    background-position: center;
+    z-index: 9999;
+}

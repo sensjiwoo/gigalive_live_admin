@@ -1,0 +1,166 @@
+/* 1. mobile (480px ~ 767px) */ 
+@media all and (max-width:767px) {
+	
+	.pc {
+		display: none !important ;
+	}
+    .wrap2 { 
+        width: 90vw; 
+        margin: 0 13px 0 auto; 
+    }   
+
+/* __________________ 헤더 __________________ */
+header.video {
+    box-sizing: border-box;
+}
+header .wrap2 {
+    display: flex;
+    justify-content: center;
+    z-index: 9999;
+}
+
+
+
+
+.liveing {
+    width: 50px;
+    height: 50px;
+    display: block;
+    position: absolute;
+    top: 10px;
+    left: 13px;
+    background-image: url(../images/liveing2.svg);
+    background-size: 80%;
+    background-repeat: no-repeat;
+    background-position: center;
+    z-index: 9999;
+}
+.m_chatbtn.open {
+    background-image: url(../images/m_close.svg);
+}
+.video_info {
+    width: 100%;
+    z-index: 9999;
+    display: none;
+}
+.video_info.open {
+    display: block;
+    height: calc(100% - 70px - 45px);
+    top: 70px;
+}
+
+/* 비디오화면 */
+.main_video_area, .main_video_area.re {
+    width: 100%;
+    padding: 50px 0;
+}
+
+.live_screen {
+    width: 100vw;
+    height: 56vw;
+}
+.live_play {
+    display: block;
+    width: 20vw;
+    height: 22.2vw;
+}
+.clock {
+    font-size: 20px;
+}
+.live_cont {
+    width: 100%;
+    height: 100px;
+}
+.title_txt {
+    width: 100%;
+    line-height: 40px;
+}
+.user_info {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.start {
+    position: relative;
+    top: -27px;
+}
+
+/* 비디오 바로가기 */
+.direct {
+    width: 100%;
+    height: 45px;
+    position: absolute;
+    bottom: 0;
+    background: #fff;
+}
+.live_react {
+    width: 100%;
+    box-sizing: border-box;
+    border-top: 1px solid #d8d8d8;
+}
+.chat {
+    background-image: url(../images/chat.svg);
+}
+.chat.open {
+    background-image: url(../images/chat2.svg);
+
+}
+.info_cont.off {
+    left: 0;
+}
+.info_cont.chat_cont {
+    height: 100%;
+}
+.m_close {
+    position: absolute;
+    width: 45px;
+    height: 45px;
+    background-image: url(../images/m_close.svg);
+    background-size: 70%;
+    background-repeat: no-repeat;
+    background-position: center;
+    right: 10px;
+    top: 4px;
+    z-index: 10;
+}
+
+
+/* Mobile __Style__End */ }
+
+
+
+
+/* 2. tablet (768px ~ 1023px) */
+@media all and (min-width:768px) and (max-width:1023px) {
+    .mob {
+		display: none !important ;
+	}
+    
+    
+    
+/* tablet __Style__End */ }
+
+
+
+
+/* 3. PC (1024px) */ 
+@media all and (min-width:1024px) {
+    .mob {
+		display: none !important ;
+	}
+    
+    
+/* Pc __Style__End */ }
+
+
+
+@media (orientation: portrait) {
+	/* Portrait 모드일 때 적용할 CSS */
+
+}
+
+@media (orientation: landscape) {
+	/* Landscape 모드일 때 적용할 CSS */
+
+}
+
